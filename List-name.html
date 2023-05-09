@@ -11,6 +11,7 @@
         justify-content: center;
         font-family: 'Poppins', sans-serif;
         height: 100vh;
+        cursor: pointer;
       }
 
       .buttons {
@@ -60,25 +61,31 @@
         const dx = event.pageX - buttonCenterX;
         const dy = event.pageY - buttonCenterY;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 100) {
+        if (distance < 200) {
           const angle = Math.atan2(dy, dx);
-          const offsetX = 100 * Math.cos(angle);
-          const offsetY = 100 * Math.sin(angle);
+          const offsetX = 200 * Math.cos(angle);
+          const offsetY = 200 * Math.sin(angle);
           event.target.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
         } else {
           event.target.style.transform = 'translate(0, 0)';
         }
       });
 
-      noButton.addEventListener('mouseleave', () => {
-        noButton.style.transform = 'translate(0, 0)';
-      });
+      // noButton.addEventListener('mouseleave', () => {
+      //   noButton.style.transform = 'translate(0, 0)';
+      // });
 
-      const yesButton = document.getElementById('yes-button');
+      // const yesButton = document.getElementById('yes-button');
 
-      yesButton.addEventListener('click', () => {
-        alert('Esse 💞 é seu!');
-      });
+      // yesButton.addEventListener('click', () => {
+      //   alert('Esse 💞 é seu!');
+      // });
+
+      document.getElementById('yes-button').onclick = function () {
+        swal('💞', 'Plano infalível concluído com sucesso!!!');
+      };
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>
+
